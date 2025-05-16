@@ -1,10 +1,10 @@
-import React from 'react';
-import CustomerInformation from '@/components/CustomerInformation';
-import MeasurementsTable from '@/components/MeasurementsTable';
-import WastageConfiguration from '@/components/WastageConfiguration';
-import SummarySection from '@/components/SummarySection';
-import ActionButtons from '@/components/ActionButtons';
-import { useQuote } from '@/hooks/useQuote';
+import React from "react";
+import CustomerInformation from "@/components/CustomerInformation";
+import MeasurementsTable from "@/components/MeasurementsTable";
+import WastageConfiguration from "@/components/WastageConfiguration";
+import SummarySection from "@/components/SummarySection";
+import ActionButtons from "@/components/ActionButtons";
+import { useQuote } from "@/hooks/useQuote";
 
 const Home: React.FC = () => {
   const {
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     removeRoom,
     resetForm,
     saveQuote,
-    printQuote
+    printQuote,
   } = useQuote();
 
   const summary = getSummary();
@@ -28,15 +28,19 @@ const Home: React.FC = () => {
         <header className="mb-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-2xl font-bold" style={{ color: '#5b4c43' }}>Magic Flooring Area Calculator</h1>
-              <p className="text-secondary">Create precise flooring quotes for your customers</p>
+              <h1 className="text-2xl font-bold" style={{ color: "#5b4c43" }}>
+                Magic Flooring Area Calculator
+              </h1>
+              <p className="text-secondary">
+                Create precise flooring quotes for your customers
+              </p>
             </div>
             <div>
               {/* Company logo */}
               <div className="w-20 h-20 p-1 rounded-full overflow-hidden">
-                <img 
-                  src="/src/assets/4MF-logo400x400.jpg" 
-                  alt="Magic Flooring Logo" 
+                <img
+                  src="/assets/4MF-logo400x400.jpg"
+                  alt="Magic Flooring Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -45,13 +49,13 @@ const Home: React.FC = () => {
         </header>
 
         {/* Customer Information Form */}
-        <CustomerInformation 
-          customer={quoteState.customer} 
-          updateCustomer={updateCustomer} 
+        <CustomerInformation
+          customer={quoteState.customer}
+          updateCustomer={updateCustomer}
         />
 
         {/* Room Measurements Table */}
-        <MeasurementsTable 
+        <MeasurementsTable
           rooms={quoteState.rooms}
           updateRoom={updateRoom}
           addRoom={addRoom}
@@ -61,16 +65,13 @@ const Home: React.FC = () => {
         {/* Wastage configuration removed as requested */}
 
         {/* Summary Section */}
-        <SummarySection 
+        <SummarySection
           summary={summary}
           wastagePercentage={quoteState.wastagePercentage}
         />
 
         {/* Action Buttons */}
-        <ActionButtons 
-          resetForm={resetForm}
-          printQuote={printQuote}
-        />
+        <ActionButtons resetForm={resetForm} printQuote={printQuote} />
       </div>
     </div>
   );
