@@ -39,7 +39,7 @@ const Home: React.FC = () => {
               {/* Company logo */}
               <div className="w-20 h-20 p-1 rounded-full overflow-hidden">
                 <img
-                  src="assets/4MF-logo400x400.jpg"
+                  src="./4MF-logo400x400.jpg"
                   alt="Magic Flooring Logo"
                   className="w-full h-full object-contain"
                 />
