@@ -15,7 +15,6 @@ const Home: React.FC = () => {
     addRoom,
     removeRoom,
     resetForm,
-    saveQuote,
     printQuote,
   } = useQuote();
 
@@ -23,6 +22,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen p-4 md:p-6 bg-slate-100">
+      const handleSaveQuote = () => {
+        console.log('Save button clicked');
+        // Implement save logic using your API calls here
+      };
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <header className="mb-6">
@@ -71,7 +74,11 @@ const Home: React.FC = () => {
         />
 
         {/* Action Buttons */}
-        <ActionButtons resetForm={resetForm} printQuote={printQuote} />
+        <ActionButtons
+          resetForm={resetForm}
+          printQuote={printQuote}
+          saveQuote={handleSaveQuote}
+        />
       </div>
     </div>
   );

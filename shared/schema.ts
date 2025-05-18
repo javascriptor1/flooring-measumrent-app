@@ -43,6 +43,7 @@ export type Customer = z.infer<typeof customerSchema>;
 export const quotes = pgTable("quotes", {
   id: serial("id").primaryKey(),
   customerName: text("customer_name").notNull(),
+  userId: integer("user_id").notNull().references(() => users.id),
   customerMobile: text("customer_mobile").notNull(),
   customerAddress: text("customer_address"),
   customerNotes: text("customer_notes"),
@@ -55,7 +56,7 @@ export const quotes = pgTable("quotes", {
   createdAt: text("created_at").notNull(), // storing as ISO string
 });
 
-export const insertQuoteSchema = createInsertSchema(quotes).omit({ id: true });
+export const insertQuoteSchema = createInsertSchema(quotes).omit({ id: true, totalRoomArea: true, totalSkirtingLength: true, totalFlooringRequired: true, totalSkirtingRequired: true });
 
 export type Quote = typeof quotes.$inferSelect;
 export type InsertQuote = z.infer<typeof insertQuoteSchema>;
